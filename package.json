@@ -1,0 +1,30 @@
+{
+  "name": "namesify",
+  "version": "1.0.0",
+  "description": "A Little Library to manipulate names",
+  "author": "Ivomar Santos <ivomarlucio@gmail.com>",
+  "keywords": [
+    "namesify",
+    "ivomarsan"
+  ],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/ivomarsan/namesify",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ivomarsan/namesify.git"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-size": "*",
+    "gulp-clean": "*",
+    "gulp-rename": "*",
+    "gulp-jshint": "*",
+    "gulp-browserify": "*",
+    "jshint": "*",
+    "jshint-stylish": "*"
+  }
+}
