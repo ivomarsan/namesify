@@ -19,7 +19,7 @@ gulp.task('watch', () => {
 });
 
 // Limpa a Pasta
-gulp.task('clear', () => gulp.src('bundle/', {read: false}).pipe( clean({force: true}) ) );
+gulp.task('clear', () => gulp.src('dist/', {read: false}).pipe( clean({force: true}) ) );
 
 // Realiza Build de todas as tasks
 gulp.task('build', ['js']);
@@ -47,7 +47,7 @@ gulp.task('js', () => {
   gulp.src(path.mainJs)
       .pipe( browserify() )
       .pipe( rename('index.js') )
-      .pipe( gulp.dest('bundle/') )
+      .pipe( gulp.dest('dist/') )
       .pipe( size() )
   ;
 });
