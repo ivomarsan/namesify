@@ -1,8 +1,1 @@
-(() => {
-  'use strict';
-
-  const Namesify = require('./dev/namesify');
-
-  module.exports = Namesify;
-
-})();
+"use strict";function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var _createClass=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}();"".trim||(String.prototype.trim=function(){return(void 0).replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,"")});var titleize=function(e){for(var t=e.replace(/\s{2,}/g," "),n=t.trim(),r=n.toLowerCase(),a=r.split(" "),i=a.length,u=0;i>u;u++)"de"!==a[u]&&"da"!==a[u]&&"do"!==a[u]&&(a[u]=a[u].replace(/(^)\S/g,function(e){return e.toUpperCase()}));return a.join(" ")},Namesify=function(){function e(t){_classCallCheck(this,e),this.name=titleize(t)}return _createClass(e,[{key:"first",value:function(){return this.name.split(" ")[0]}},{key:"last",value:function(){return this.name.split(" ").pop()}},{key:"full",value:function(){return this.name}},{key:"up",value:function(){return this.name.toUpperCase()}}]),e}();module.exports=Namesify;

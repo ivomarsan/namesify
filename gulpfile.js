@@ -1,14 +1,16 @@
 const gulp = require('gulp')
-  , browserify = require('gulp-browserify')
+  , sourcemaps = require('gulp-sourcemaps')
+  , uglify = require('gulp-uglify')
   , jshint = require('gulp-jshint')
   , rename = require('gulp-rename')
   , clean = require('gulp-clean')
+  , babel = require('gulp-babel')
   , size = require('gulp-size')
 ;
 
 const path = {};
 path.mainJs =
-'dev/namesify.js';
+'dev/index.js';
 path.js =
   [path.mainJs, 'dev/**/*.js'];
 
@@ -19,7 +21,7 @@ gulp.task('watch', () => {
 });
 
 // Limpa a Pasta
-gulp.task('clear', () => gulp.src('dist/', {read: false}).pipe( clean({force: true}) ) );
+gulp.task('clear', () => gulp.src('index.js', {read: false}).pipe( clean({force: true}) ) );
 
 // Realiza Build de todas as tasks
 gulp.task('build', ['js']);
@@ -41,13 +43,16 @@ process.on('uncaughtException', e => {
 
 gulp.task('js', () => {
   gulp.src(path.js)
-      .pipe(jshint())
-      .pipe(jshint.reporter('jshint-stylish'))
+      .pipe( jshint() )
+      .pipe( jshint.reporter('jshint-stylish') )
   ;
   gulp.src(path.mainJs)
-      .pipe( browserify() )
+      // .pipe( sourcemaps.init() )
+      .pipe( babel({ presets: ['es2015'] }) )
+      .pipe( uglify() )
       .pipe( rename('index.js') )
-      .pipe( gulp.dest('dist/') )
+      // .pipe( sourcemaps.write('.') )
+      .pipe( gulp.dest('./') )
       .pipe( size() )
   ;
 });
